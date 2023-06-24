@@ -37,6 +37,24 @@ $routes->get('/news', 'News::index');
 $routes->get('/news/(:any)', 'News::viewNews/$1');
 
 
+$routes->get('home', 'Home::index');
+
+//
+//$routes->get('/register', 'Register::index');
+//$routes->post('/register/process', 'Register::process');
+$routes->get('/register', 'Register::index');
+$routes->post('/register/process', 'Register::process');
+//$routes->get('/login/index', 'Login::index');
+$routes->get('/login/index', 'Login::index',['as' => 'login']);
+$routes->post('/login/process', 'Login::process');
+$routes->get('/logout', 'Login::logout');
+
+
+//$routes->get('/login', 'Login::index');
+//$routes->post('/login/process', 'Login::process');
+//$routes->get('/logout', 'Login::logout');
+
+
 $routes->group('admin', function($routes){
 	$routes->get('news', 'NewsAdmin::index');
 	$routes->get('news/(:segment)/preview', 'NewsAdmin::preview/$1');
